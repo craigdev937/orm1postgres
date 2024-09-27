@@ -1,8 +1,9 @@
 import express from "express";
-import { IndexHome } from "../controllers/UserCon";
+import { USER } from "../controllers/UserCon";
 
 export const userRt: express.Router = express.Router();
-    userRt.get("/", IndexHome);
+    userRt.post("/", USER.Create);
+    userRt.get("/", USER.FetchAll);
 
 
 
