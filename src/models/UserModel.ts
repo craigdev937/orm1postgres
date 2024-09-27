@@ -9,8 +9,10 @@ export class User extends BaseEntity {
     @Column() lastName: string;
     @Column() age: number;
     @Column() isActive: boolean;
-
-    @OneToOne(() => Profile, { cascade: true }) 
+    @OneToOne(() => Profile, { 
+        cascade: true, 
+        eager: true 
+    }) 
     @JoinColumn() profile: Profile;
 };
 

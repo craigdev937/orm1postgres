@@ -6,6 +6,7 @@ import logger from "morgan";
 import { ERR } from "./middleware/midError";
 import { zodMID } from "./middleware/zodMid";
 import { userRt } from "./routes/UserRt";
+import { profRt } from "./routes/ProfileRt";
 import { dBase } from "./db/database";
 
 (async () => {
@@ -33,6 +34,7 @@ import { dBase } from "./db/database";
     app.use(logger("dev"));
     app.use(zodMID);
     app.use("/api/user", userRt);
+    app.use("/api/prof", profRt);
     app.use(ERR.notFound);
     app.use(ERR.errHandler);
 
