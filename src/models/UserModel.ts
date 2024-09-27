@@ -1,5 +1,6 @@
-import { BaseEntity, Column, Entity, 
-    PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, Entity, JoinColumn,
+    OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Profile } from "./ProfileModel";
 
 @Entity({name: "users"})
 export class User extends BaseEntity {
@@ -8,6 +9,9 @@ export class User extends BaseEntity {
     @Column() lastName: string;
     @Column() age: number;
     @Column() isActive: boolean;
+
+    @OneToOne(() => Profile, { cascade: true }) 
+    @JoinColumn() profile: Profile;
 };
 
 
