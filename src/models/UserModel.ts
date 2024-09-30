@@ -12,7 +12,7 @@ export class User extends BaseEntity {
 
     @OneToMany(() => Todo, 
     (todo) => todo.user,
-    {cascade: true, eager: true}) todos: Todo[];
+    {cascade: true}) todos: Todo[];
 };
 
 

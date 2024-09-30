@@ -20,7 +20,7 @@ class TodoClass {
         try {
             await Todo
                 .find({
-                    
+                    relations: ["user"]
                 })
                 .then((todos) => res.status(200)
                 .json(todos));

@@ -8,6 +8,7 @@ import { zodMID } from "./middleware/zodMid";
 import { userRt } from "./routes/UserRt";
 import { profRt } from "./routes/ProfileRt";
 import { todoRt } from "./routes/TodoRt";
+import { stuRt } from "./routes/StudentRt";
 import { dBase } from "./db/database";
 
 (async () => {
@@ -37,6 +38,7 @@ import { dBase } from "./db/database";
     app.use("/api/user", userRt);
     app.use("/api/prof", profRt);
     app.use("/api/todo", todoRt);
+    app.use("/api/student", stuRt);
     app.use(ERR.notFound);
     app.use(ERR.errHandler);
 
