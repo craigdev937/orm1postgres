@@ -1,5 +1,6 @@
 import express from "express";
 import { Profile } from "../models/ProfileModel";
+import { User } from "../models/UserModel";
 
 class ProfileClass {
     Create: express.Handler = async (req, res, next) => {
@@ -18,11 +19,12 @@ class ProfileClass {
     FetchAll: express.Handler = async (req, res, next) => {
         try {
             await Profile
-            .find()
+            .find({relations: ["user"]})
             .then((profiles) => res.status(200)
             .json(profiles));
         } catch (error) {
-            
+            res.status(500).json(res.statusMessage);
+            next(error);
         }
     };
 };
